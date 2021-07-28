@@ -6,7 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v4
+        id: version
         with:
           script: |
             const { body, base, created_at } = context.payload.pull_request
             console.log( body, base.ref, created_at )
+        
+      - name: Test
+        run: echo ${{ steps.version }}
