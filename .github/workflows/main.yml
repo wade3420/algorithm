@@ -8,11 +8,11 @@ jobs:
       - uses: actions/github-script@v4
         id: pull_request_payload
         with:
+          result-encoding: "json"
           script: |
            const { body, base, created_at } = context.payload.pull_request 
            return { body: body, base : base.ref, created_at: created_at }
-            
-          result-encoding: "json"
+        
 
         
       - run: echo "${{ steps.pull_request_payload.outputs.result.base }}"
