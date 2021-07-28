@@ -9,8 +9,12 @@ jobs:
         id: version
         with:
           script: |
-            const { body, base, created_at } = context.payload.pull_request
-            console.log( body, base.ref, created_at )
+           const { body, base, created_at } = context.payload.pull_request
+            return github.pulls.get({
+            body,
+            base : base.ref,
+            created_at
+            });
+
         
-      - name: Test
-        run: echo ${{ steps.version }}
+      - run: echo "${{ steps.pull_request_payload.outputs.result }}"
