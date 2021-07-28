@@ -8,6 +8,5 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            const diff_url = context.payload.pull_request
-
-            console.log(diff_url)
+            const { body, base, created_at } = context.payload.pull_request
+            console.log( body, base, created_at )
