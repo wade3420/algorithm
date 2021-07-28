@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v4
-        id: version
+        id: pull_request_payload
         with:
           script: |
            const { body, base, created_at } = context.payload.pull_request 
