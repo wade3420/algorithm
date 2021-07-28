@@ -9,4 +9,5 @@ jobs:
         with:
           script: |
             const diff_url = context.payload.pull_request
+
             console.log(diff_url)
