@@ -9,4 +9,4 @@ jobs:
         with:
           script: |
             const { body, base, created_at } = context.payload.pull_request
-            console.log( body, base, created_at )
+            console.log( body, base.ref, created_at )
