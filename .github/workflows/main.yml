@@ -15,4 +15,4 @@ jobs:
           result-encoding: "string"
 
         
-      - run: echo "${{ steps.pull_request_payload.outputs.result }}"
+      - run: echo "${{ steps.pull_request_payload.outputs.result.created_at }}"
